@@ -1,0 +1,52 @@
+﻿<Window
+    x:Class="NorthwindExplorer.AddEditCustomer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NorthwindExplorer"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="AddEditCustomer"
+    Width="400"
+    Height="164.887"
+    mc:Ignorable="d">
+    <Canvas>
+        <TextBox
+            Canvas.Left="142"
+            Canvas.Top="14"
+            Width="228"
+            Height="23"
+            MaxLength="5"
+            Text="{Binding CustomerID}" />
+        <TextBox
+            Canvas.Left="142"
+            Canvas.Top="42"
+            Width="228"
+            Height="23"
+            Text="{Binding CompanyName}" />
+        <TextBox
+            Canvas.Left="142"
+            Canvas.Top="70"
+            Width="228"
+            Height="23"
+            Text="{Binding ContactName}" />
+        <Label
+            Canvas.Left="37"
+            Canvas.Top="10"
+            Content="CustomerID" />
+        <Label
+            Canvas.Left="37"
+            Canvas.Top="38"
+            Content="Company Name" />
+        <Label
+            Canvas.Left="37"
+            Canvas.Top="66"
+            Content="Contact Name" />
+        <Button
+            Canvas.Left="295"
+            Canvas.Top="98"
+            Width="75"
+            Click="Button_Click"
+            Content="OK" />
+
+    </Canvas>
+</Window>
