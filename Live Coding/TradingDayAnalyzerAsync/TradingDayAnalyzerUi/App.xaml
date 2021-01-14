@@ -1,8 +1,8 @@
 ﻿<Application
-    x:Class="NorthwindExplorer.App"
+    x:Class="TradingDayAnalyzerUi.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:NorthwindExplorer"
+    xmlns:local="clr-namespace:TradingDayAnalyzerUi"
     StartupUri="MainWindow.xaml">
     <Application.Resources />
 </Application>

@@ -1,0 +1,16 @@
+﻿<Window x:Class="BummlerApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BummlerApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="196" Width="289">
+    <Canvas>
+        <Button Content="Bummeln" Canvas.Left="20" Canvas.Top="33" Width="80" Click="Button_Click"/>
+        <Button Content="Trödeln" Canvas.Left="20" Canvas.Top="64" Width="80" Click="Button_Click_1"/>
+        <Label x:Name="lblBummel" Canvas.Left="126" Canvas.Top="30"/>
+        <Label x:Name="lblTroedel" Canvas.Left="126" Canvas.Top="64"/>
+
+    </Canvas>
+</Window>

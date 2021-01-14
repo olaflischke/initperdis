@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
@@ -9,35 +11,27 @@ namespace TradingDayAnalyzerDal
 {
     public class Repository
     {
+
+
         public Repository(string url)
         {
-            this.TradingDays = GetDataByLinq(url);
-            SaveDataToDb();
+            //this.TradingDays = GetDataByLinq(url);
+            this.Url = url;
         }
 
-        private void SaveDataToDb()
+        public async Task<List<TradingDay>> GetDataAsync()
         {
-            TradingDayContext context = new TradingDayContext();
-
-            context.TradingDays.AddRange(this.TradingDays);
-            context.SaveChanges();
-
-            //Parallel.For(0, this.TradingDays.Count, i =>
-            //{
-            //    TradingDayContext context = new TradingDayContext();
-
-            //    context.TradingDays.Add(this.TradingDays[i]);
-            //    context.SaveChanges();
-            //});
+            //Thread.Sleep(3000);
+            return await Task.Run(() => GetDataByLinq());
         }
 
-        private List<TradingDay> GetDataByLinq(string url)
+        public List<TradingDay> GetDataByLinq()
         {
             List<TradingDay> days = new List<TradingDay>();
 
-            XDocument document = XDocument.Load(url);
+            XDocument document =  XDocument.Load(this.Url);
 
-            var q = from nd in document.Root.Descendants()
+            var q = from nd in document.Root.Descendants()//.AsParallel()
                     where nd.Name.LocalName == "Cube" && nd.Attributes().Count() == 1
                     // Projektion auf Ergebnismenge
                     select new TradingDay(nd); // { Date = Convert.ToDateTime(nd.Attribute("time").Value) };
@@ -83,6 +77,6 @@ namespace TradingDayAnalyzerDal
 
         public List<TradingDay> TradingDays { get; set; }
 
-
+        public string Url { get; set; }
     }
 }
