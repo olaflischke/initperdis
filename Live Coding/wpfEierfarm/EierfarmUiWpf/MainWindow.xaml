@@ -1,0 +1,102 @@
+﻿<Window
+    x:Class="EierfarmUiWpf.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:bl="clr-namespace:EierfarmBl;assembly=EierfarmBl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:EierfarmUiWpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="360.164"
+    Height="372.382"
+    Loaded="Window_Loaded"
+    mc:Ignorable="d">
+    <Canvas>
+        <ComboBox
+            x:Name="cbxTiere"
+            Canvas.Left="120"
+            Canvas.Top="10"
+            Width="120"
+            DisplayMemberPath="Name"
+            ItemsSource="{Binding Tiere}"
+            SelectedItem="{Binding SelectedTier}" />
+        <Button
+            x:Name="btnNeuesHuhn"
+            Canvas.Left="245"
+            Canvas.Top="12"
+            Width="75"
+            Command="{Binding NeuesHuhnCommand}"
+            Content="Neues Huhn" />
+        <TextBox
+            Canvas.Left="120"
+            Canvas.Top="37"
+            Width="120"
+            Height="23"
+            Text="{Binding ElementName=cbxTiere, Path=SelectedItem.Name}" />
+        <TextBox
+            Canvas.Left="120"
+            Canvas.Top="65"
+            Width="120"
+            Height="23"
+            Text="{Binding ElementName=cbxTiere, Path=SelectedItem.Gewicht}" />
+        <ListBox
+            Canvas.Left="120"
+            Canvas.Top="93"
+            Width="120"
+            Height="134"
+            ItemsSource="{Binding ElementName=cbxTiere, Path=SelectedItem.Eier}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <Run Text="{Binding Gewicht, StringFormat=0.0g}" />
+                        <Run Text="{Binding Farbe}" />
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Label
+            Canvas.Left="62"
+            Canvas.Top="9"
+            Content="Tier" />
+        <Label
+            Canvas.Left="62"
+            Canvas.Top="35"
+            Content="Name" />
+        <Label
+            Canvas.Left="62"
+            Canvas.Top="61"
+            Content="Gewicht" />
+        <Label
+            Canvas.Left="62"
+            Canvas.Top="93"
+            Content="Eier" />
+        <Button
+            x:Name="btnNeueGans"
+            Canvas.Left="245"
+            Canvas.Top="40"
+            Width="75"
+            Click="btnNeueGans_Click"
+            Content="Neue Gans" />
+        <Button
+            x:Name="btnNeuesSchnabeltier"
+            Canvas.Left="245"
+            Canvas.Top="67"
+            Width="75"
+            Click="btnNeuesSchnabeltier_Click"
+            Content="Schnabeltier" />
+        <Button
+            x:Name="btnFuettern"
+            Canvas.Left="245"
+            Canvas.Top="159"
+            Width="75"
+            Command="{Binding FuetternCommand}"
+            Content="Füttern" />
+        <Button
+            x:Name="btnEiLegen"
+            Canvas.Left="245"
+            Canvas.Top="134"
+            Width="75"
+            Command="{Binding EiLegenCommand}"
+            Content="Ei legen" />
+    </Canvas>
+</Window>
