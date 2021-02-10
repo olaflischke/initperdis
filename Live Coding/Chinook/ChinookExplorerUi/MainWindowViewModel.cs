@@ -75,5 +75,6 @@ namespace ChinookExplorerUi
         public RelayCommand NewTrackCommand { get; set; }
 
         public Track SelectedTrack { get; set; }
+        public Artist SelectedArtist { get; set; }
     }
 }
