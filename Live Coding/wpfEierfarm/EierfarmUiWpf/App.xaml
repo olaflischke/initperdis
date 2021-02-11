@@ -1,9 +1,18 @@
-﻿<Application x:Class="EierfarmUiWpf.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:EierfarmUiWpf"
-             StartupUri="MainWindow.xaml">
+﻿<Application
+    x:Class="EierfarmUiWpf.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:EierfarmUiWpf"
+    StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="dictStyles.xaml" />
+                <ResourceDictionary Source="dictDataTypes.xaml" />
+                <!--<ResourceDictionary Source="dictStyles2.xaml" />-->
+
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

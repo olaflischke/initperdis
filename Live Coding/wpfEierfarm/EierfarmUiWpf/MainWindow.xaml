@@ -11,6 +11,7 @@
     Height="372.382"
     Loaded="Window_Loaded"
     mc:Ignorable="d">
+    <Window.Resources />
     <Canvas>
         <ComboBox
             x:Name="cbxTiere"
@@ -44,16 +45,8 @@
             Canvas.Top="93"
             Width="120"
             Height="134"
-            ItemsSource="{Binding ElementName=cbxTiere, Path=SelectedItem.Eier}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock>
-                        <Run Text="{Binding Gewicht, StringFormat=0.0g}" />
-                        <Run Text="{Binding Farbe}" />
-                    </TextBlock>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            ItemsSource="{Binding ElementName=cbxTiere, Path=SelectedItem.Eier}" />
+
         <Label
             Canvas.Left="62"
             Canvas.Top="9"

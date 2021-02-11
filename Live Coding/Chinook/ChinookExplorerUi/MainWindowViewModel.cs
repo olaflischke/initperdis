@@ -23,7 +23,10 @@ namespace ChinookExplorerUi
 
         public MainWindowViewModel()
         {
-            this.ArtistsByGenre = repo.GetArtistsByGenre();
+            //this.ArtistsByGenre = repo.GetArtistsByGenre();
+            this.ExplorerViewModel = new ucExplorerViewModel();
+
+            this.ExplorerViewModel.ArtistsByGenre = repo.GetArtistsByGenre();
 
             this.EditTrackCommand = new RelayCommand(p => CanEditTrack(), a => EditTrackAction());
             this.NewTrackCommand = new RelayCommand(p => CanNewTrack(), a => NewTrackAction());
@@ -63,6 +66,13 @@ namespace ChinookExplorerUi
 
         }
 
+
+        public RelayCommand EditTrackCommand { get; set; }
+        public RelayCommand NewTrackCommand { get; set; }
+
+        public Track SelectedTrack { get; set; }
+        public Artist SelectedArtist { get; set; }
+
         private Dictionary<Genre, IEnumerable<Artist>> _artistsByGenre;
 
         public Dictionary<Genre, IEnumerable<Artist>> ArtistsByGenre
@@ -71,10 +81,6 @@ namespace ChinookExplorerUi
             set { _artistsByGenre = value; }
         }
 
-        public RelayCommand EditTrackCommand { get; set; }
-        public RelayCommand NewTrackCommand { get; set; }
-
-        public Track SelectedTrack { get; set; }
-        public Artist SelectedArtist { get; set; }
+        public ucExplorerViewModel ExplorerViewModel { get; set; }
     }
 }

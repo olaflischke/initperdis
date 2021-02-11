@@ -1,0 +1,70 @@
+﻿<Window
+    x:Class="ZeichnenInWpf.FunktionsPlotter"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ZeichnenInWpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:svg="clr-namespace:SVGImage.SVG;assembly=DotNetProjects.SVGImage"
+    Title="FunktionsPlotter"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="187*" />
+        </Grid.RowDefinitions>
+        <!--  f(x) = a3*x³ + a2*x² + a1*x + a0  -->
+
+        <DockPanel Grid.Row="0">
+            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                <Label Content="a3" />
+                <TextBox x:Name="txtA3" Width="50" />
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                <Label Content="a2" />
+                <TextBox x:Name="txtA2" Width="50" />
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                <Label Content="a1" />
+                <TextBox x:Name="txtA1" Width="50" />
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                <Label Content="a0" />
+                <TextBox x:Name="txtA0" Width="50" />
+            </StackPanel>
+
+            <Image
+                Width="30"
+                Height="30"
+                DockPanel.Dock="Right"
+                Source="/grfx/Custom-Icon-Design-Pretty-Office-7-Save.ico" />
+
+            <svg:SVGImage
+                Width="30"
+                Height="30"
+                DockPanel.Dock="Right"
+                Source="/ZeichnenInWpf;component/grfx/save.svg" />
+
+            <Button
+                x:Name="btnPlot"
+                Width="80"
+                HorizontalAlignment="Left"
+                Click="btnPlot_Click"
+                Content="Plotten" />
+        </DockPanel>
+
+        <Image
+            Grid.Row="1"
+            Source="/grfx/IMG_1547.jpg"
+            Visibility="Hidden" />
+        <svg:SVGImage Grid.Row="1" Source="/ZeichnenInWpf;component/grfx/save.svg" />
+
+        <Canvas
+            x:Name="cvLeinwand"
+            Grid.Row="1"
+            Width="400"
+            Height="400" />
+    </Grid>
+</Window>
